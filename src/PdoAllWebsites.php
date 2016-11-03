@@ -41,7 +41,11 @@ class PdoAllWebsites extends Websites implements WebsitesInterface
             throw new \RuntimeException("Could not retrieve Websites from database");
         endif;
 
-        $this->websites = $stmt->fetchAll(\PDO::FETCH_UNIQUE);
+        $this->websites = array_map(function($row) {
+            // Cast numeric is_active field to integer
+            $row->is_active = (int) $row->is_active;
+            return $row;
+        }, $stmt->fetchAll(\PDO::FETCH_UNIQUE));
     }
 
 }
