@@ -102,12 +102,12 @@ class Website extends WebsiteAbstract implements WebsiteInterface
      *
      * @param mixed $is_active 'active' flag. Defaults to null.
      *
-     * @return self|mixed The page instance or active state.
+     * @return self|bool The page instance or active state (TRUE id greater than 0, else FALSE)
      */
     public function isActive($is_active = null)
     {
         if (is_null($is_active)) {
-            return $this->is_active;
+            return $this->is_active > 0;
         }
         $this->is_active = $is_active;
         return $this;
