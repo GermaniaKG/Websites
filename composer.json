@@ -18,12 +18,12 @@
 			}
 	},
 
-  "autoload-dev": {
-      "psr-4": { "tests\\": "tests/src" }
-  },
+	"autoload-dev": {
+			"psr-4": { "tests\\": "tests/src" }
+	},
 
 	"require": {
-		  "psr/log": "^1.0",
+			"psr/log": "^1.0",
 			"container-interop/container-interop": "^1.1"
 	},
 

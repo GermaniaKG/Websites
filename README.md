@@ -13,7 +13,7 @@ $ composer require germania-kg/websites
 **MySQL:** When working with database, create your table using the CREATE TABLE in `sql/germania-websites.sql`.
 
 
-##Usage
+##All Websites
 
 The interface **WebsitesInterface** extends *IteratorAggregate, Countable* and the [container-interop](https://github.com/container-interop/container-interop) *ContainerInterface.* (upcoming [PSR 11](https://github.com/php-fig/fig-standards/blob/master/proposed/container.md) standard). 
 
@@ -22,12 +22,13 @@ Class **Websites** implements *WebsitesInterface* and thus can be iterated over 
 ```php
 <?php
 use Germania\Websites\PdoAllWebsites;
+use Germania\Websites\Website;
 
 // Instantiation
 // - optional: Custom Website object template (extension of WebsiteAbstract)
 // - optional: Custom table name
 $all_websites = new PdoAllWebsites( $pdo );
-$all_websites = new PdoAllWebsites( $pdo, new MyWebsite );
+$all_websites = new PdoAllWebsites( $pdo, new Website );
 $all_websites = new PdoAllWebsites( $pdo, null, "my_pages" );
 
 
@@ -46,6 +47,39 @@ $website_exists = $all_websites->has( 42 );
 $website        = $all_websites->get( 42 );
 ?>
 ```
+
+
+##Get a website by route
+
+```php
+use Germania\Websites\PdoRouteWebsiteFactory;
+use Germania\Websites\WebsiteNotFoundException;
+use Germania\Websites\Website;
+
+
+// Instantiation
+// - optional: Custom Website object template (extension of WebsiteAbstract)
+// - optional: Custom table name
+$factory = new PdoRouteWebsiteFactory( $pdo );
+$factory = new PdoRouteWebsiteFactory( $pdo, new Website );
+$factory = new PdoRouteWebsiteFactory( $pdo, null, "my_pages" );
+
+$route = "/index.html";
+
+// interop ContainerInterface
+$exists  = $factory->has( $route );
+
+try { 
+	// Callable or ContainerInterface's Getter
+	$website = $factory( $route ); 
+	$website = $factory->get( $route ); 
+}
+// Interop\Container\Exception\NotFoundException
+catch (WebsiteNotFoundException $e) {
+	// 404
+}
+```
+
 
 
 ##Development and Testing
