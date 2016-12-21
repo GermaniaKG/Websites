@@ -9,9 +9,14 @@
 
 
 	<testsuites>
-		<testsuite name="Test Suite">
-			<directory>tests/src</directory>
+		<testsuite name="default">
+			<directory>tests/default</directory>
 		</testsuite>
+		<!--
+		<testsuite name="mysql">
+			<directory>tests/mysql</directory>
+		</testsuite>
+		-->
 	</testsuites>
 
 	<filter>
@@ -25,6 +30,7 @@
 		<log type="coverage-html"   target="build/logs/html/"/>
 		<log type="testdox-html"    target="build/logs/testdox.html"/>
 		<log type="coverage-text"   target="php://stdout" showUncoveredFiles="true" />
+		<var name="DB_SETUP"  value="sql/install.sql.txt" />
 	</logging>
 
 </phpunit>
