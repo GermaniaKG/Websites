@@ -1,5 +1,5 @@
 <?php
-namespace Germania\Users;
+namespace Germania\Websites;
 
 use Interop\Container\Exception\NotFoundException;
 
