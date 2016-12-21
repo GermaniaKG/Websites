@@ -4,7 +4,7 @@ namespace Germania\Websites;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 
-class WebsiteRoutesAcl
+class PdoWebsiteRoutesAcl
 {
 
     /**
