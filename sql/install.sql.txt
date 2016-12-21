@@ -1,0 +1,22 @@
+CREATE TABLE `pages` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `route` varchar(255) DEFAULT NULL,
+  `content_file` varchar(255) DEFAULT '',
+  `template` varchar(255) DEFAULT NULL,
+  `dom_id` varchar(255) DEFAULT NULL,
+  `is_active` int(2) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_route` (`route`),
+  KEY `index_route` (`route`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE `pages_roles` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `page_id` int(11) unsigned NOT NULL,
+  `role_id` int(11) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_page_role` (`page_id`,`role_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Assigns page IDs to user role IDs (many-to-many relations)';
+
+
