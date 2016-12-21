@@ -2,8 +2,6 @@
 namespace tests;
 
 use Germania\Websites\PdoAllWebsites;
-use Germania\Websites\WebsiteNotFoundException;
-use Interop\Container\Exception\NotFoundException;
 use Prophecy\Argument;
 
 
