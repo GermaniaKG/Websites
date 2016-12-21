@@ -12,16 +12,6 @@ use Prophecy\Argument;
 class WebsitesTest extends \PHPUnit_Framework_TestCase
 {
 
-    public $logger;
-
-
-    public function setUp()
-    {
-        parent::setUp();
-        $this->logger = new NullLogger;
-    }
-
-
     public function testWebsiteNotFoundException(  )
     {
         $sut = new Websites;
