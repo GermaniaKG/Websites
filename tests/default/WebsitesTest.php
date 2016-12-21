@@ -4,9 +4,6 @@ namespace tests;
 use Germania\Websites\Websites;
 use Germania\Websites\WebsiteNotFoundException;
 use Interop\Container\Exception\NotFoundException;
-use Psr\Log\LoggerInterface;
-use Psr\Log\NullLogger;
-use Prophecy\Argument;
 
 
 class WebsitesTest extends \PHPUnit_Framework_TestCase
@@ -26,7 +23,7 @@ class WebsitesTest extends \PHPUnit_Framework_TestCase
         $sut = new Websites;
         $sut->websites['foo'] = "foo";
 
-        $w = $sut->get( "foo ");
+        $w = $sut->get( "foo" );
         $this->assertEquals( "foo", $w );
     }
 
