@@ -10,7 +10,7 @@ You better do not want it to use this in production.
 $ composer require germania-kg/websites
 ```
 
-**MySQL:** When working with database, create your table using the CREATE TABLE in `sql/germania-websites.sql`.
+**MySQL:** When working with database, create your tables using the CREATE TABLE statements in `sql/install.sql.txt`.
 
 
 ##All Websites
