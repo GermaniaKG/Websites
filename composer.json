@@ -2,7 +2,7 @@
 	"name":        "germania-kg/websites",
 
 	"type":        "library",
-	"license":     "proprietary",
+	"license":     "MIT",
 
 	"authors": [
 		{
@@ -18,9 +18,12 @@
 			}
 	},
 
-	"autoload-dev": {
-			"psr-4": { "tests\\": "tests/src" }
-	},
+  "autoload-dev": {
+      "psr-4": {
+      	"tests\\": "tests/default",
+      	"mysql\\": "tests/mysql"
+      }
+  },
 
 	"require": {
 			"psr/log": "^1.0",
