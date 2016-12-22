@@ -51,6 +51,20 @@ interface WebsiteInterface
      */
     public function getDomId();
 
+    /**
+     * Gets an array with custom Javascripts
+     *
+     * @return array
+     */
+    public function getJavascripts();
+
+    /**
+     * Gets an array with custom Stylesheets
+     *
+     * @return array
+     */
+    public function getStylesheets();
+
 
     /**
      * Checks if the page is marked 'active'.

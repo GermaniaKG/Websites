@@ -27,6 +27,8 @@ class PdoAllWebsites extends Websites implements WebsitesInterface
         content_file,
         template,
         dom_id,
+        javascripts,
+        stylesheets,
         is_active
 
         FROM {$this->table}
@@ -44,6 +46,13 @@ class PdoAllWebsites extends Websites implements WebsitesInterface
         $this->websites = array_map(function($row) {
             // Cast numeric is_active field to integer
             $row->is_active = (int) $row->is_active;
+            // Split into array
+            if (isset($row->javascripts)):
+                $row->javascripts = explode(",", $row->javascripts);
+            endif;
+            if (isset($row->stylesheets)):
+                $row->stylesheets = explode(",", $row->stylesheets);
+            endif;
             return $row;
         }, $stmt->fetchAll(\PDO::FETCH_UNIQUE));
     }

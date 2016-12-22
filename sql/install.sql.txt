@@ -5,6 +5,8 @@ CREATE TABLE `pages` (
   `content_file` varchar(255) DEFAULT '',
   `template` varchar(255) DEFAULT NULL,
   `dom_id` varchar(255) DEFAULT NULL,
+  `javascripts` varchar(255) DEFAULT NULL COMMENT 'Comma-separated list of JS files',
+  `stylesheets` varchar(255) DEFAULT NULL COMMENT 'Comma-separated list of CSS files',
   `is_active` int(2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_route` (`route`),

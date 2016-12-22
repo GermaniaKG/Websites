@@ -32,6 +32,8 @@ class PdoRouteWebsiteFactory implements ContainerInterface
         content_file,
         template,
         dom_id,
+        javascripts,
+        stylesheets,
         is_active
 
         FROM {$this->table}
@@ -61,8 +63,18 @@ class PdoRouteWebsiteFactory implements ContainerInterface
     public function get ($route) {
         $this->executeStatement( $route );
 
-        if ($user = $this->stmt->fetch()) {
-            return $user;
+        if ($row = $this->stmt->fetch()) {
+            // Cast numeric is_active field to integer
+            $row->is_active = (int) $row->is_active;
+            // Split into array
+            if (isset($row->javascripts)):
+                $row->javascripts = explode(",", $row->javascripts);
+            endif;
+            if (isset($row->stylesheets)):
+                $row->stylesheets = explode(",", $row->stylesheets);
+            endif;
+
+            return $row;
         }
 
         throw new WebsiteNotFoundException("Could not find website for route '$route'");
