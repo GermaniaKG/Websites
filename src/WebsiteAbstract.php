@@ -42,12 +42,12 @@ abstract class WebsiteAbstract implements WebsiteInterface
     /**
      * @var array
      */
-    public $javascripts;
+    public $javascripts = array();
 
     /**
      * @var array
      */
-    public $stylesheets;
+    public $stylesheets = array();
 
 
     /**
