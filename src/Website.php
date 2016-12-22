@@ -95,6 +95,39 @@ class Website extends WebsiteAbstract implements WebsiteInterface
     }
 
 
+
+    /**
+     * Sets custom Stylesheets
+     *
+     * @param array $css
+     *
+     * @return self
+     */
+    public function setStylesheets( $css )
+    {
+        $this->stylesheets = $css;
+
+        return $this;
+    }
+
+
+    /**
+     * Sets custom Javascripts
+     *
+     * @param array $js
+     *
+     * @return self
+     */
+    public function setJavascripts( $js )
+    {
+        $this->javascripts = $js;
+
+        return $this;
+    }
+
+
+
+
     /**
      * Checks if the page is marked 'active'.
      *
