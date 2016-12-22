@@ -63,8 +63,8 @@ class PdoRouteWebsiteFactory implements ContainerInterface
     public function get ($route) {
         $this->executeStatement( $route );
 
-        if ($user = $this->stmt->fetch()) {
-            return $user;
+        if ($website = $this->stmt->fetch()) {
+            return $website;
         }
 
         throw new WebsiteNotFoundException("Could not find website for route '$route'");
