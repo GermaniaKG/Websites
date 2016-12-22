@@ -30,6 +30,8 @@ class WebsiteTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals( "foo", $sut->setContentFile("foo")->getContentFile() );
         $this->assertEquals( "foo", $sut->setTemplate("foo")->getTemplate() );
         $this->assertEquals( "foo", $sut->setDomId("foo")->getDomId() );
+        $this->assertEquals( array("foo"), $sut->setJavascripts(array("foo"))->getJavascripts() );
+        $this->assertEquals( array("foo"), $sut->setStylesheets(array("foo"))->getStylesheets() );
     }
 
 

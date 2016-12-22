@@ -32,6 +32,8 @@ class PdoRouteWebsiteFactory implements ContainerInterface
         content_file,
         template,
         dom_id,
+        javascripts,
+        stylesheets,
         is_active
 
         FROM {$this->table}

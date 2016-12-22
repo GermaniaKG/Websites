@@ -39,6 +39,16 @@ abstract class WebsiteAbstract implements WebsiteInterface
      */
     public $is_active;
 
+    /**
+     * @var array
+     */
+    public $javascripts;
+
+    /**
+     * @var array
+     */
+    public $stylesheets;
+
 
     /**
      * Gets the page ID.
@@ -104,6 +114,27 @@ abstract class WebsiteAbstract implements WebsiteInterface
         return $this->dom_id;
     }
 
+
+    /**
+     * Gets an array with custom Javascripts
+     *
+     * @return array
+     */
+    public function getJavascripts()
+    {
+        return $this->javascripts;
+    }
+
+
+    /**
+     * Gets an array with custom Stylesheets
+     *
+     * @return array
+     */
+    public function getStylesheets()
+    {
+        return $this->stylesheets;
+    }
 
 
     /**

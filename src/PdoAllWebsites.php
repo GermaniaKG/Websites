@@ -27,6 +27,8 @@ class PdoAllWebsites extends Websites implements WebsitesInterface
         content_file,
         template,
         dom_id,
+        javascripts,
+        stylesheets,
         is_active
 
         FROM {$this->table}
