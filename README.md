@@ -32,7 +32,7 @@ $ composer require germania-kg/websites
 
 ##All Websites
 
-The interface **WebsitesInterface** extends *IteratorAggregate, Countable* and the [container-interop](https://github.com/container-interop/container-interop) *ContainerInterface.* (upcoming [PSR 11](https://github.com/php-fig/fig-standards/blob/master/proposed/container.md) standard). 
+The interface **WebsitesInterface** extends *IteratorAggregate, Countable* and the [PSR-11](https://github.com/php-fig/container) *ContainerInterface.* 
 
 Class **Websites** implements *WebsitesInterface* and thus can be iterated over and ‘counted’. The **PdoAllWebsites** class is an extension that reads from a MySQL Table. 
 
