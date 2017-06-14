@@ -79,7 +79,7 @@ class PdoRouteWebsiteFactory implements ContainerInterface
             return $row;
         }
 
-        throw new WebsiteNotFoundException("Could not find website for route or route name '$route'");
+        throw new WebsiteNotFoundException("Could not find website for route (url) or route name '$route'");
     }
 
 
