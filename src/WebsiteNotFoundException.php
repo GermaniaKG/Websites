@@ -1,9 +1,9 @@
 <?php
 namespace Germania\Websites;
 
-use Interop\Container\Exception\NotFoundException;
+use Psr\Container\NotFoundExceptionInterface;
 
-class WebsiteNotFoundException extends \Exception implements NotFoundException
+class WebsiteNotFoundException extends \Exception implements NotFoundExceptionInterface
 {
 
 }

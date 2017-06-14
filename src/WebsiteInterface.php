@@ -29,6 +29,14 @@ interface WebsiteInterface
 
 
     /**
+     * Gets the page route name.
+     *
+     * @return string
+     */
+    public function getRouteName();
+
+
+    /**
      * Gets the content file for this page.
      *
      * @return string

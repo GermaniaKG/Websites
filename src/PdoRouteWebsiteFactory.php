@@ -1,7 +1,7 @@
 <?php
 namespace Germania\Websites;
 
-use Interop\Container\ContainerInterface;
+use Psr\Container\ContainerInterface;
 
 class PdoRouteWebsiteFactory implements ContainerInterface
 {
@@ -18,17 +18,18 @@ class PdoRouteWebsiteFactory implements ContainerInterface
 
     /**
      * @param PDO             $pdo
+     * @param string          $table    Websites table name
      * @param WebsiteAbstract $website  Optional: Website template object
-     * @param string          $table    Optional: Websites table name
      */
-    public function __construct( \PDO $pdo, WebsiteAbstract $website = null, $table = null  )
+    public function __construct( \PDO $pdo, $table, WebsiteAbstract $website = null  )
     {
-        $this->table = $table ?: $this->table;
+        $this->table = $table;
 
         $sql = "SELECT
         id,
         title,
         route,
+        route_name,
         content_file,
         template,
         dom_id,
@@ -38,7 +39,8 @@ class PdoRouteWebsiteFactory implements ContainerInterface
 
         FROM {$this->table}
 
-        WHERE route = :route
+        WHERE route_name = :route
+        OR route = :route
         LIMIT 1";
 
         $this->stmt = $pdo->prepare( $sql );
@@ -77,7 +79,7 @@ class PdoRouteWebsiteFactory implements ContainerInterface
             return $row;
         }
 
-        throw new WebsiteNotFoundException("Could not find website for route '$route'");
+        throw new WebsiteNotFoundException("Could not find website for route (url) or route name '$route'");
     }
 
 

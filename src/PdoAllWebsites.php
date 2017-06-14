@@ -11,12 +11,12 @@ class PdoAllWebsites extends Websites implements WebsitesInterface
 
     /**
      * @param PDO             $pdo
+     * @param string          $table    Websites table name
      * @param WebsiteAbstract $website  Optional: Website template object
-     * @param string          $table    Optional: Websites table name
      */
-    public function __construct( \PDO $pdo, WebsiteAbstract $website = null, $table = null  )
+    public function __construct( \PDO $pdo, $table, WebsiteAbstract $website = null  )
     {
-        $this->table = $table ?: $this->table;
+        $this->table = $table;
 
         // ID is listed twice here in order to use it with FETCH_UNIQUE as array key
         $sql = "SELECT
@@ -24,6 +24,7 @@ class PdoAllWebsites extends Websites implements WebsitesInterface
         id,
         title,
         route,
+        route_name,
         content_file,
         template,
         dom_id,
