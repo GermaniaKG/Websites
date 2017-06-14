@@ -18,12 +18,12 @@ class PdoRouteWebsiteFactory implements ContainerInterface
 
     /**
      * @param PDO             $pdo
+     * @param string          $table    Websites table name
      * @param WebsiteAbstract $website  Optional: Website template object
-     * @param string          $table    Optional: Websites table name
      */
-    public function __construct( \PDO $pdo, WebsiteAbstract $website = null, $table = null  )
+    public function __construct( \PDO $pdo, $table, WebsiteAbstract $website = null  )
     {
-        $this->table = $table ?: $this->table;
+        $this->table = $table;
 
         $sql = "SELECT
         id,

@@ -10,7 +10,7 @@ You better do not want it to use this in production.
 ##Upgrade from v2
 **Database:** There is a new field *route_name.* See `sql/install.sql.txt` on how to create or add the fields. 
 
-Class **PdoAllWebsites:** Passing the pages table name to  constructor is now mandatory.
+Classes **PdoAllWebsites** and **PdoRouteWebsiteFactory:** Passing the pages table name to  constructor is now mandatory.
 
 
 
@@ -74,10 +74,9 @@ use Germania\Websites\Website;
 
 // Instantiation
 // - optional: Custom Website object template (extension of WebsiteAbstract)
-// - optional: Custom table name
-$factory = new PdoRouteWebsiteFactory( $pdo );
-$factory = new PdoRouteWebsiteFactory( $pdo, new Website );
-$factory = new PdoRouteWebsiteFactory( $pdo, null, "my_pages" );
+$factory = new PdoRouteWebsiteFactory( $pdo, "my_pages" );
+$factory = new PdoRouteWebsiteFactory( $pdo, "my_pages", new Website );
+$factory = new PdoRouteWebsiteFactory( $pdo, "my_pages", null );
 
 $route = "/index.html";
 
