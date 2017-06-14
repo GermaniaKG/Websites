@@ -8,7 +8,7 @@ use Prophecy\Argument;
 class PdoAllWebsitesTest extends \PHPUnit_Framework_TestCase
 {
 
-    public function testWebsiteNotFoundException(  )
+    public function testFindingPage(  )
     {
         $index = 0;
         $search_term = 'bar';
