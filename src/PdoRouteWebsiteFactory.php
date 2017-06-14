@@ -1,7 +1,7 @@
 <?php
 namespace Germania\Websites;
 
-use Interop\Container\ContainerInterface;
+use Psr\Container\ContainerInterface;
 
 class PdoRouteWebsiteFactory implements ContainerInterface
 {
