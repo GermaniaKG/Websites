@@ -7,6 +7,13 @@ You better do not want it to use this in production.
 [![Code Coverage](https://scrutinizer-ci.com/g/GermaniaKG/Websites/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Websites/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/GermaniaKG/Websites/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Websites/?branch=master)
 
+##Upgrade from v2
+**Database:** There is a new field *route_name.* See `sql/install.sql.txt` on how to create or add the fields. 
+
+Class **PdoAllWebsites:** Passing the pages table name to  constructor is now mandatory.
+
+
+
 ##Upgrade from v1
 
 There are two new database fields **javascripts** and **stylesheets.** See `sql/install.sql.txt` on how to create or add the fields. 
@@ -36,10 +43,8 @@ use Germania\Websites\Website;
 
 // Instantiation
 // - optional: Custom Website object template (extension of WebsiteAbstract)
-// - optional: Custom table name
-$all_websites = new PdoAllWebsites( $pdo );
-$all_websites = new PdoAllWebsites( $pdo, new Website );
-$all_websites = new PdoAllWebsites( $pdo, null, "my_pages" );
+$all_websites = new PdoAllWebsites( $pdo, "my_pages" );
+$all_websites = new PdoAllWebsites( $pdo, "my_pages", new Website );
 
 
 // Countable:
