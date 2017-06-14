@@ -11,8 +11,8 @@ class PdoAllWebsites extends Websites implements WebsitesInterface
 
     /**
      * @param PDO             $pdo
+     * @param string          $table    Websites table name
      * @param WebsiteAbstract $website  Optional: Website template object
-     * @param string          $table    Optional: Websites table name
      */
     public function __construct( \PDO $pdo, $table, WebsiteAbstract $website = null  )
     {
