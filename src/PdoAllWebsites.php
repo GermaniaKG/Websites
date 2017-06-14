@@ -24,6 +24,7 @@ class PdoAllWebsites extends Websites implements WebsitesInterface
         id,
         title,
         route,
+        route_name,
         content_file,
         template,
         dom_id,

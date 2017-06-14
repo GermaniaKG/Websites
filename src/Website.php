@@ -51,6 +51,21 @@ class Website extends WebsiteAbstract implements WebsiteInterface
 
 
     /**
+     * Sets the page route name.
+     *
+     * @param mixed $route_name the route name
+     *
+     * @return self
+     */
+    public function setRouteName($name)
+    {
+        $this->route_name = $route_name;
+
+        return $this;
+    }
+
+
+    /**
      * Sets the content file for this page.
      *
      * @param mixed $content_file the php include
