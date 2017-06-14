@@ -57,7 +57,7 @@ class Website extends WebsiteAbstract implements WebsiteInterface
      *
      * @return self
      */
-    public function setRouteName($name)
+    public function setRouteName($route_name)
     {
         $this->route_name = $route_name;
 
