@@ -57,7 +57,7 @@ endforeach;
 
 // ContainerInterface:
 // Getting may throw WebsiteNotFoundException
-// Interop\Container\Exception\NotFoundException
+// which implements Psr\Container\NotFoundExceptionInterface
 $website_exists = $all_websites->has( 42 );
 $website        = $all_websites->get( 42 );
 ?>
