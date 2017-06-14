@@ -26,7 +26,7 @@ class PdoAllWebsitesTest extends \PHPUnit_Framework_TestCase
         $pdo_mock->prepare( Argument::type('string') )->willReturn( $stmt );
         $pdo = $pdo_mock->reveal();
 
-        $sut = new PdoAllWebsites( $pdo );
+        $sut = new PdoAllWebsites( $pdo, "pages" );
         $w = $sut->get( $index );
         $this->assertEquals($w->foo, $search_term);
 
