@@ -39,7 +39,8 @@ class PdoRouteWebsiteFactory implements ContainerInterface
 
         FROM {$this->table}
 
-        WHERE route = :route
+        WHERE route_name = :route
+        OR route = :route
         LIMIT 1";
 
         $this->stmt = $pdo->prepare( $sql );
@@ -78,7 +79,7 @@ class PdoRouteWebsiteFactory implements ContainerInterface
             return $row;
         }
 
-        throw new WebsiteNotFoundException("Could not find website for route '$route'");
+        throw new WebsiteNotFoundException("Could not find website for route or route name '$route'");
     }
 
 
