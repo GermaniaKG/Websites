@@ -22,6 +22,11 @@ abstract class WebsiteAbstract implements WebsiteInterface
     /**
      * @var string
      */
+    public $route_name;
+
+    /**
+     * @var string
+     */
     public $content_file;
 
     /**
@@ -79,6 +84,17 @@ abstract class WebsiteAbstract implements WebsiteInterface
     public function getRoute()
     {
         return $this->route;
+    }
+
+
+    /**
+     * Gets the page route name.
+     *
+     * @return string
+     */
+    public function getRouteName()
+    {
+        return $this->route_name;
     }
 
 

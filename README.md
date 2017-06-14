@@ -7,6 +7,13 @@ You better do not want it to use this in production.
 [![Code Coverage](https://scrutinizer-ci.com/g/GermaniaKG/Websites/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Websites/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/GermaniaKG/Websites/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Websites/?branch=master)
 
+##Upgrade from v2
+**Database:** There is a new field *route_name.* See `sql/install.sql.txt` on how to create or add the fields. 
+
+Classes **PdoAllWebsites** and **PdoRouteWebsiteFactory:** Passing the pages table name to  constructor is now mandatory.
+
+
+
 ##Upgrade from v1
 
 There are two new database fields **javascripts** and **stylesheets.** See `sql/install.sql.txt` on how to create or add the fields. 
@@ -25,7 +32,7 @@ $ composer require germania-kg/websites
 
 ##All Websites
 
-The interface **WebsitesInterface** extends *IteratorAggregate, Countable* and the [container-interop](https://github.com/container-interop/container-interop) *ContainerInterface.* (upcoming [PSR 11](https://github.com/php-fig/fig-standards/blob/master/proposed/container.md) standard). 
+The interface **WebsitesInterface** extends *IteratorAggregate, Countable* and the [PSR-11](https://github.com/php-fig/container) *ContainerInterface.* 
 
 Class **Websites** implements *WebsitesInterface* and thus can be iterated over and ‘counted’. The **PdoAllWebsites** class is an extension that reads from a MySQL Table. 
 
@@ -36,10 +43,8 @@ use Germania\Websites\Website;
 
 // Instantiation
 // - optional: Custom Website object template (extension of WebsiteAbstract)
-// - optional: Custom table name
-$all_websites = new PdoAllWebsites( $pdo );
-$all_websites = new PdoAllWebsites( $pdo, new Website );
-$all_websites = new PdoAllWebsites( $pdo, null, "my_pages" );
+$all_websites = new PdoAllWebsites( $pdo, "my_pages" );
+$all_websites = new PdoAllWebsites( $pdo, "my_pages", new Website );
 
 
 // Countable:
@@ -52,7 +57,7 @@ endforeach;
 
 // ContainerInterface:
 // Getting may throw WebsiteNotFoundException
-// Interop\Container\Exception\NotFoundException
+// which implements Psr\Container\NotFoundExceptionInterface
 $website_exists = $all_websites->has( 42 );
 $website        = $all_websites->get( 42 );
 ?>
@@ -69,10 +74,9 @@ use Germania\Websites\Website;
 
 // Instantiation
 // - optional: Custom Website object template (extension of WebsiteAbstract)
-// - optional: Custom table name
-$factory = new PdoRouteWebsiteFactory( $pdo );
-$factory = new PdoRouteWebsiteFactory( $pdo, new Website );
-$factory = new PdoRouteWebsiteFactory( $pdo, null, "my_pages" );
+$factory = new PdoRouteWebsiteFactory( $pdo, "my_pages" );
+$factory = new PdoRouteWebsiteFactory( $pdo, "my_pages", new Website );
+$factory = new PdoRouteWebsiteFactory( $pdo, "my_pages", null );
 
 $route = "/index.html";
 

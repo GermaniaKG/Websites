@@ -3,8 +3,7 @@ namespace tests;
 
 use Germania\Websites\Websites;
 use Germania\Websites\WebsiteNotFoundException;
-use Interop\Container\Exception\NotFoundException;
-
+use Psr\Container\NotFoundExceptionInterface;
 
 class WebsitesTest extends \PHPUnit_Framework_TestCase
 {
@@ -13,7 +12,7 @@ class WebsitesTest extends \PHPUnit_Framework_TestCase
     {
         $sut = new Websites;
         $this->expectException( WebsiteNotFoundException::class );
-        $this->expectException( NotFoundException::class );
+        $this->expectException( NotFoundExceptionInterface::class );
 
         $w = $sut->get( "foo ");
     }
