@@ -31,6 +31,7 @@ class PdoRouteWebsiteFactory implements ContainerInterface
         route,
         route_name,
         content_file,
+        controller,
         template,
         dom_id,
         javascripts,

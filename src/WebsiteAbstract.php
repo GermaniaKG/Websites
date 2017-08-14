@@ -32,6 +32,11 @@ abstract class WebsiteAbstract implements WebsiteInterface
     /**
      * @var string
      */
+    public $controller;
+
+    /**
+     * @var string
+     */
     public $template;
 
     /**
@@ -106,6 +111,17 @@ abstract class WebsiteAbstract implements WebsiteInterface
     public function getContentFile()
     {
         return $this->content_file;
+    }
+
+
+    /**
+     * Gets the Controller class name for this page
+     *
+     * @return string
+     */
+    public function getController()
+    {
+        return $this->controller;
     }
 
 
