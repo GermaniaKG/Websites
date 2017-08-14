@@ -29,6 +29,7 @@ class WebsiteTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals( "foo", $sut->setRoute("foo")->getRoute() );
         $this->assertEquals( "foo", $sut->setRouteName("foo")->getRouteName() );
         $this->assertEquals( "foo", $sut->setContentFile("foo")->getContentFile() );
+        $this->assertEquals( "foo", $sut->setController("foo")->getController() );
         $this->assertEquals( "foo", $sut->setTemplate("foo")->getTemplate() );
         $this->assertEquals( "foo", $sut->setDomId("foo")->getDomId() );
 

@@ -81,6 +81,21 @@ class Website extends WebsiteAbstract implements WebsiteInterface
 
 
     /**
+     * Sets the Controller class for this page.
+     *
+     * @param mixed $controller the php class
+     *
+     * @return self
+     */
+    public function setController($controller)
+    {
+        $this->controller = $controller;
+
+        return $this;
+    }
+
+
+    /**
      * Sets the page template file.
      *
      * @param mixed $template the template

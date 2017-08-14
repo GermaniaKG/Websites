@@ -45,6 +45,14 @@ interface WebsiteInterface
 
 
     /**
+     * Gets the Controller class name for this page
+     *
+     * @return string
+     */
+    public function getController();
+
+
+    /**
      * Gets the page template file.
      *
      * @return string
