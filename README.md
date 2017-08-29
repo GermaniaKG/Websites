@@ -1,4 +1,4 @@
-#Germania\Websites
+# Germania\Websites
 
 **This package was destilled from legacy code!**   
 You better do not want it to use this in production.
@@ -7,21 +7,21 @@ You better do not want it to use this in production.
 [![Code Coverage](https://scrutinizer-ci.com/g/GermaniaKG/Websites/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Websites/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/GermaniaKG/Websites/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Websites/?branch=master)
 
-##Upgrade from v2
+## Upgrade from v2
 **Database:** There is a new field *route_name.* See `sql/install.sql.txt` on how to create or add the fields. 
 
 Classes **PdoAllWebsites** and **PdoRouteWebsiteFactory:** Passing the pages table name to  constructor is now mandatory.
 
 
 
-##Upgrade from v1
+## Upgrade from v1
 
 There are two new database fields **javascripts** and **stylesheets.** See `sql/install.sql.txt` on how to create or add the fields. 
 
 According to this, interface *WebsiteInterface* prescribes two methods **getJavascripts** and **getStylesheets**, its implementation class *Website* additionally introduces **setJavascripts** and **setStylesheets**.
 
 
-##Installation
+## Installation
 
 ```bash
 $ composer require germania-kg/websites
@@ -30,7 +30,7 @@ $ composer require germania-kg/websites
 **MySQL:** When working with database, create your tables using the CREATE TABLE statements in `sql/install.sql.txt`.
 
 
-##All Websites
+## All Websites
 
 The interface **WebsitesInterface** extends *IteratorAggregate, Countable* and the [PSR-11](https://github.com/php-fig/container) *ContainerInterface.* 
 
@@ -64,7 +64,7 @@ $website        = $all_websites->get( 42 );
 ```
 
 
-##Get a website by route
+## Get a website by route
 
 ```php
 use Germania\Websites\PdoRouteWebsiteFactory;
@@ -96,7 +96,7 @@ catch (WebsiteNotFoundException $e) {
 
 
 
-##Development and Testing
+## Development and Testing
 
 Develop using `develop` branch, using [Git Flow](https://github.com/nvie/gitflow).   
 **Currently, no tests are specified.**
