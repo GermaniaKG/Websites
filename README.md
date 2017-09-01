@@ -8,7 +8,7 @@ You better do not want it to use this in production.
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/GermaniaKG/Websites/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Websites/?branch=master)
 
 ## Upgrade from v2
-**Database:** There is a new field *route_name.* See `sql/install.sql.txt` on how to create or add the fields. 
+**Database:** There is a new field *route_name.* See `sql/install.sql.txt` on how to create or add the fields.
 
 Classes **PdoAllWebsites** and **PdoRouteWebsiteFactory:** Passing the pages table name to  constructor is now mandatory.
 
@@ -16,7 +16,7 @@ Classes **PdoAllWebsites** and **PdoRouteWebsiteFactory:** Passing the pages tab
 
 ## Upgrade from v1
 
-There are two new database fields **javascripts** and **stylesheets.** See `sql/install.sql.txt` on how to create or add the fields. 
+There are two new database fields **javascripts** and **stylesheets.** See `sql/install.sql.txt` on how to create or add the fields.
 
 According to this, interface *WebsiteInterface* prescribes two methods **getJavascripts** and **getStylesheets**, its implementation class *Website* additionally introduces **setJavascripts** and **setStylesheets**.
 
@@ -32,9 +32,9 @@ $ composer require germania-kg/websites
 
 ## All Websites
 
-The interface **WebsitesInterface** extends *IteratorAggregate, Countable* and the [PSR-11](https://github.com/php-fig/container) *ContainerInterface.* 
+The interface **WebsitesInterface** extends *IteratorAggregate, Countable* and the [PSR-11](https://github.com/php-fig/container) *ContainerInterface.*
 
-Class **Websites** implements *WebsitesInterface* and thus can be iterated over and ‘counted’. The **PdoAllWebsites** class is an extension that reads from a MySQL Table. 
+Class **Websites** implements *WebsitesInterface* and thus can be iterated over and ‘counted’. The **PdoAllWebsites** class is an extension that reads from a MySQL Table.
 
 ```php
 <?php
@@ -85,8 +85,8 @@ $exists  = $factory->has( $route );
 
 try { 
 	// Callable or ContainerInterface's Getter
-	$website = $factory( $route ); 
-	$website = $factory->get( $route ); 
+	$website = $factory( $route );
+	$website = $factory->get( $route );
 }
 // Interop\Container\Exception\NotFoundException
 catch (WebsiteNotFoundException $e) {
@@ -94,16 +94,25 @@ catch (WebsiteNotFoundException $e) {
 }
 ```
 
+## Issues
 
+See [issues list.][i0]
 
-## Development and Testing
+[i0]: https://github.com/GermaniaKG/Websites/issues
 
-Develop using `develop` branch, using [Git Flow](https://github.com/nvie/gitflow).   
-**Currently, no tests are specified.**
+## Development
 
 ```bash
 $ git clone git@github.com:GermaniaKG/Websites.git germania-websites
 $ cd germania-websites
-$ cp phpunit.xml.dist phpunit.xml
-$ phpunit
+$ composer install
+```
+
+## Unit tests
+
+Either copy `phpunit.xml.dist` to `phpunit.xml` and adapt to your needs, or leave as is.
+Run [PhpUnit](https://phpunit.de/) like this:
+
+```bash
+$ vendor/bin/phpunit
 ```
