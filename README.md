@@ -68,6 +68,7 @@ $website        = $all_websites->get( 42 );
 ## Get a website by route
 
 ```php
+<?php
 use Germania\Websites\PdoRouteWebsiteFactory;
 use Germania\Websites\WebsiteNotFoundException;
 use Germania\Websites\Website;
