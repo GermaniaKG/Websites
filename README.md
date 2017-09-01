@@ -8,14 +8,14 @@ You better do not want it to use this in production.
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/GermaniaKG/Websites/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Websites/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/GermaniaKG/Websites/badges/build.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Websites/build-status/master)
 
-## Upgrade from v2
+## Upgrade notes
+
+### Upgrading from v2
 **Database:** There is a new field *route_name.* See `sql/install.sql.txt` on how to create or add the fields.
 
 Classes **PdoAllWebsites** and **PdoRouteWebsiteFactory:** Passing the pages table name to  constructor is now mandatory.
 
-
-
-## Upgrade from v1
+### Upgrading from v1
 
 There are two new database fields **javascripts** and **stylesheets.** See `sql/install.sql.txt` on how to create or add the fields.
 
