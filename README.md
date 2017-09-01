@@ -6,6 +6,7 @@ You better do not want it to use this in production.
 [![Build Status](https://travis-ci.org/GermaniaKG/Websites.svg?branch=master)](https://travis-ci.org/GermaniaKG/Websites)
 [![Code Coverage](https://scrutinizer-ci.com/g/GermaniaKG/Websites/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Websites/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/GermaniaKG/Websites/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Websites/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/GermaniaKG/Websites/badges/build.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Websites/build-status/master)
 
 ## Upgrade from v2
 **Database:** There is a new field *route_name.* See `sql/install.sql.txt` on how to create or add the fields.
