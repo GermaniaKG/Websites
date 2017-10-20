@@ -3,9 +3,9 @@ namespace tests;
 
 use Germania\Websites\PdoAllWebsites;
 use Prophecy\Argument;
+use PHPUnit\Framework\TestCase;
 
-
-class PdoAllWebsitesTest extends \PHPUnit_Framework_TestCase
+class PdoAllWebsitesTest extends TestCase
 {
 
     public function testFindingPage(  )

@@ -5,9 +5,9 @@ use Germania\Websites\Website;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Prophecy\Argument;
+use PHPUnit\Framework\TestCase;
 
-
-class WebsiteTest extends \PHPUnit_Framework_TestCase
+class WebsiteTest extends TestCase
 {
 
     public $logger;

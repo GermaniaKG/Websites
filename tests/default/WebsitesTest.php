@@ -4,8 +4,9 @@ namespace tests;
 use Germania\Websites\Websites;
 use Germania\Websites\WebsiteNotFoundException;
 use Psr\Container\NotFoundExceptionInterface;
+use PHPUnit\Framework\TestCase;
 
-class WebsitesTest extends \PHPUnit_Framework_TestCase
+class WebsitesTest extends TestCase
 {
 
     public function testWebsiteNotFoundException(  )
