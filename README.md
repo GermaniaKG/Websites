@@ -98,9 +98,12 @@ catch (WebsiteNotFoundException $e) {
 
 ## Issues
 
+[Issue 1:][i1] MySQL 5.7.5 has a *ONLY\_FULL\_GROUP\_BY* problem with the SQL query used in class **PdoWebsiteRoutesAcl**.
+
 See [issues list.][i0]
 
 [i0]: https://github.com/GermaniaKG/Websites/issues
+[i1]: https://github.com/GermaniaKG/Websites/issues/1
 
 ## Development
 
