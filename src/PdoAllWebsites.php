@@ -23,6 +23,7 @@ class PdoAllWebsites extends Websites implements WebsitesInterface
         id,
         id,
         title,
+        via,
         route,
         route_name,
         content_file,
@@ -46,15 +47,21 @@ class PdoAllWebsites extends Websites implements WebsitesInterface
         endif;
 
         $this->websites = array_map(function($row) {
+
             // Cast numeric is_active field to integer
             $row->is_active = (int) $row->is_active;
+
             // Split into array
             if (isset($row->javascripts)):
-                $row->javascripts = explode(",", $row->javascripts);
+                $row->javascripts = preg_split("/[\s,]+/", trim($row->javascripts));
             endif;
             if (isset($row->stylesheets)):
-                $row->stylesheets = explode(",", $row->stylesheets);
+                $row->stylesheets = preg_split("/[\s,]+/", trim($row->stylesheets));
             endif;
+            if (isset($row->via)):
+                $row->via = preg_split("/[\s,]+/", trim($row->via));
+            endif;
+
             return $row;
         }, $stmt->fetchAll(\PDO::FETCH_UNIQUE));
     }

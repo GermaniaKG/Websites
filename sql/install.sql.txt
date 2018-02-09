@@ -1,18 +1,21 @@
-CREATE TABLE `pages` (
+CREATE TABLE `pages_germania` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
+  `via` varchar(255) NOT NULL DEFAULT 'GET,POST' COMMENT 'Allowed HTTP verbs',
   `route` varchar(255) DEFAULT NULL,
   `route_name` varchar(64) DEFAULT NULL,
   `content_file` varchar(255) DEFAULT '',
+  `controller` varchar(255) DEFAULT NULL,
   `template` varchar(255) DEFAULT NULL,
   `dom_id` varchar(255) DEFAULT NULL,
   `javascripts` varchar(255) DEFAULT NULL COMMENT 'Comma-separated list of JS files',
   `stylesheets` varchar(255) DEFAULT NULL COMMENT 'Comma-separated list of CSS files',
-  `is_active` int(2) DEFAULT NULL,
+  `is_active` int(2) DEFAULT '1',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `unique_route` (`route`),
-  KEY `index_route` (`route`)
+  UNIQUE KEY `unique_page_url` (`route`),
+  KEY `index_page_url` (`via`, `route`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 
 CREATE TABLE `pages_roles` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
