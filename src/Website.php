@@ -66,6 +66,21 @@ class Website extends WebsiteAbstract implements WebsiteInterface
 
 
     /**
+     * Sets the allowed HTTP methods to "call" this website with.
+     *
+     * @param array $via The HTTP verbs
+     *
+     * @return self
+     */
+    public function setVia( array $via )
+    {
+        $this->via = $via;
+
+        return $this;
+    }
+
+
+    /**
      * Sets the content file for this page.
      *
      * @param mixed $content_file the php include

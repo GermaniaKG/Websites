@@ -28,6 +28,7 @@ class PdoRouteWebsiteFactory implements ContainerInterface
         $sql = "SELECT
         id,
         title,
+        via,
         route,
         route_name,
         content_file,
@@ -37,11 +38,9 @@ class PdoRouteWebsiteFactory implements ContainerInterface
         javascripts,
         stylesheets,
         is_active
-
         FROM {$this->table}
 
-        WHERE route_name = :route
-        OR route = :route
+        WHERE route_name = :route_name
         LIMIT 1";
 
         $this->stmt = $pdo->prepare( $sql );
@@ -50,47 +49,53 @@ class PdoRouteWebsiteFactory implements ContainerInterface
     }
 
 
-    public function __invoke( $route )
+    public function __invoke( $route_name )
     {
-        return $this->get( $route );
+        return $this->get( $route_name );
     }
 
 
 
-    public function has ($route) {
-        $this->executeStatement( $route );
+    public function has ($route_name) {
+        $this->executeStatement( $route_name );
         return (bool) $this->stmt->fetch();
     }
 
 
-    public function get ($route) {
-        $this->executeStatement( $route );
+    public function get ($route_name) {
+        $this->executeStatement( $route_name );
 
         if ($row = $this->stmt->fetch()) {
+
             // Cast numeric is_active field to integer
             $row->is_active = (int) $row->is_active;
+
             // Split into array
             if (isset($row->javascripts)):
-                $row->javascripts = explode(",", $row->javascripts);
+                $row->javascripts = preg_split("/[\s,]+/", trim($row->javascripts));
             endif;
             if (isset($row->stylesheets)):
-                $row->stylesheets = explode(",", $row->stylesheets);
+                $row->stylesheets = preg_split("/[\s,]+/", trim($row->stylesheets));
+            endif;
+            if (isset($row->via)):
+                $row->via = preg_split("/[\s,]+/", trim($row->via));
             endif;
 
             return $row;
         }
 
-        throw new WebsiteNotFoundException("Could not find website for route (url) or route name '$route'");
+        $msg = sprintf("Could not find website for route name '%s'", $route_name);
+        throw new WebsiteNotFoundException( $msg );
     }
 
 
-    protected function executeStatement ($route) {
+    protected function executeStatement ($route_name) {
         if (!$this->stmt->execute([
-            ':route' => $route
+            ':route_name' => $route_name
         ])):
             throw new \RuntimeException("Could not execute PDOStatement", [
                 'table' => $this->table,
-                'route' => $route
+                'route_name' => $route_name
             ]);
         endif;
 

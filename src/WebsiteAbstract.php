@@ -25,6 +25,11 @@ abstract class WebsiteAbstract implements WebsiteInterface
     public $route_name;
 
     /**
+     * @var array
+     */
+    public $via = array();
+
+    /**
      * @var string
      */
     public $content_file;
@@ -100,6 +105,17 @@ abstract class WebsiteAbstract implements WebsiteInterface
     public function getRouteName()
     {
         return $this->route_name;
+    }
+
+
+    /**
+     * Gets the allowed HTTP methods to "call" this website with.
+     *
+     * @return array
+     */
+    public function getVia()
+    {
+        return $this->via;
     }
 
 

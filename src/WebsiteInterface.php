@@ -37,6 +37,14 @@ interface WebsiteInterface
 
 
     /**
+     * Gets the allowed HTTP methods to "call" this website with.
+     *
+     * @return array
+     */
+    public function getVia();
+
+
+    /**
      * Gets the content file for this page.
      *
      * @return string
