@@ -105,13 +105,6 @@ See [issues list.][i0]
 [i0]: https://github.com/GermaniaKG/Websites/issues
 [i1]: https://github.com/GermaniaKG/Websites/issues/1
 
-## Development
-
-```bash
-$ git clone git@github.com:GermaniaKG/Websites.git germania-websites
-$ cd germania-websites
-$ composer install
-```
 
 ## Unit tests
 
