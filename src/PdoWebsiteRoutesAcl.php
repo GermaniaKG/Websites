@@ -3,19 +3,19 @@ namespace Germania\Websites;
 
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
+use Psr\Log\LoggerAwareTrait;
 
 class PdoWebsiteRoutesAcl
 {
+
+    use LoggerAwareTrait;
+
 
     /**
      * @var \PDOStatement
      */
     public $stmt;
 
-    /**
-     * @var LoggerInterface
-     */
-    public $logger;
 
     /**
      * @var string
@@ -44,7 +44,7 @@ class PdoWebsiteRoutesAcl
         // Prerequisites
         $this->pages_table       = $pages_table ?: $this->pages_table;
         $this->pages_roles_table = $pages_roles_table   ?: $this->pages_roles_table;
-        $this->logger            = $logger      ?: new NullLogger;
+        $this->setLogger( $logger ?: new NullLogger );
 
         // Read pages and allowed roles
         $sql =  "SELECT
