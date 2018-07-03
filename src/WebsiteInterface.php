@@ -53,6 +53,14 @@ interface WebsiteInterface
 
 
     /**
+     * Gets the middleware services names
+     *
+     * @return string
+     */
+    public function getMiddleware();
+
+
+    /**
      * Gets the Controller class name for this page
      *
      * @return string

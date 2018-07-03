@@ -1,28 +1,29 @@
 CREATE TABLE `pages_germania` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) DEFAULT NULL,
-  `via` varchar(255) NOT NULL DEFAULT 'GET,POST' COMMENT 'Allowed HTTP verbs',
-  `route` varchar(255) DEFAULT NULL,
-  `route_name` varchar(64) DEFAULT NULL,
-  `content_file` varchar(255) DEFAULT '',
-  `controller` varchar(255) DEFAULT NULL,
-  `template` varchar(255) DEFAULT NULL,
-  `dom_id` varchar(255) DEFAULT NULL,
-  `javascripts` varchar(255) DEFAULT NULL COMMENT 'Comma-separated list of JS files',
-  `stylesheets` varchar(255) DEFAULT NULL COMMENT 'Comma-separated list of CSS files',
-  `is_active` int(2) DEFAULT '1',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `unique_page_url` (`route`),
-  KEY `index_page_url` (`via`, `route`)
+	`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+	`title` varchar(255) DEFAULT NULL,
+	`via` varchar(255) NOT NULL DEFAULT 'GET,POST' COMMENT 'Allowed HTTP verbs',
+	`route` varchar(255) DEFAULT NULL,
+	`route_name` varchar(64) DEFAULT NULL,
+	`content_file` varchar(255) DEFAULT '',
+	`middleware` varchar(255) DEFAULT '',
+	`controller` varchar(255) DEFAULT NULL,
+	`template` varchar(255) DEFAULT NULL,
+	`dom_id` varchar(255) DEFAULT NULL,
+	`javascripts` varchar(255) DEFAULT NULL COMMENT 'Comma-separated list of JS files',
+	`stylesheets` varchar(255) DEFAULT NULL COMMENT 'Comma-separated list of CSS files',
+	`is_active` int(2) DEFAULT '1',
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `unique_page_url` (`route`),
+	KEY `index_page_url` (`via`, `route`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE `pages_roles` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `page_id` int(11) unsigned NOT NULL,
-  `role_id` int(11) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `unique_page_role` (`page_id`,`role_id`)
+	`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+	`page_id` int(11) unsigned NOT NULL,
+	`role_id` int(11) unsigned NOT NULL DEFAULT '0',
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `unique_page_role` (`page_id`,`role_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Assigns page IDs to user role IDs (many-to-many relations)';
 
 

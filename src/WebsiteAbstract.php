@@ -37,6 +37,11 @@ abstract class WebsiteAbstract implements WebsiteInterface
     /**
      * @var string
      */
+    public $middleware;
+
+    /**
+     * @var string
+     */
     public $controller;
 
     /**
@@ -138,6 +143,17 @@ abstract class WebsiteAbstract implements WebsiteInterface
     public function getController()
     {
         return $this->controller;
+    }
+
+
+    /**
+     * Gets the middleware services names
+     *
+     * @return string
+     */
+    public function getMiddleware()
+    {
+        return $this->middleware;
     }
 
 

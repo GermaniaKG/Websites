@@ -96,6 +96,20 @@ class Website extends WebsiteAbstract implements WebsiteInterface
 
 
     /**
+     * Sets the Middleware service name for this page.
+     *
+     * @param mixed $middleware Service name
+     *
+     * @return self
+     */
+    public function setMiddleware($middleware)
+    {
+        $this->middleware = $middleware;
+
+        return $this;
+    }
+
+    /**
      * Sets the Controller class for this page.
      *
      * @param mixed $controller the php class
