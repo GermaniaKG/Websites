@@ -3,10 +3,15 @@
 **This package was destilled from legacy code!**   
 You better do not want it to use this in production.
 
-[![Build Status](https://travis-ci.org/GermaniaKG/Websites.svg?branch=master)](https://travis-ci.org/GermaniaKG/Websites)
-[![Code Coverage](https://scrutinizer-ci.com/g/GermaniaKG/Websites/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Websites/?branch=master)
+[![Packagist](https://img.shields.io/packagist/v/germania-kg/websites.svg?style=flat)](https://packagist.org/packages/germania-kg/websites)
+[![PHP version](https://img.shields.io/packagist/php-v/germania-kg/websites.svg)](https://packagist.org/packages/germania-kg/websites)
+[![Build Status](https://img.shields.io/travis/GermaniaKG/Websites.svg?label=Travis%20CI)](https://travis-ci.org/GermaniaKG/Websites)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/GermaniaKG/Websites/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Websites/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/GermaniaKG/Websites/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Websites/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/GermaniaKG/Websites/badges/build.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Websites/build-status/master)
+
+
+
 
 ## Upgrade notes
 
@@ -22,7 +27,7 @@ There are two new database fields **javascripts** and **stylesheets.** See `sql/
 According to this, interface *WebsiteInterface* prescribes two methods **getJavascripts** and **getStylesheets**, its implementation class *Website* additionally introduces **setJavascripts** and **setStylesheets**.
 
 
-## Installation
+## Installation with Composer
 
 ```bash
 $ composer require germania-kg/websites
@@ -105,12 +110,20 @@ See [issues list.][i0]
 [i0]: https://github.com/GermaniaKG/Websites/issues
 [i1]: https://github.com/GermaniaKG/Websites/issues/1
 
+## Development
+
+```bash
+$ git clone https://github.com/GermaniaKG/Websites.git
+$ cd Websites
+$ composer install
+```
 
 ## Unit tests
 
-Either copy `phpunit.xml.dist` to `phpunit.xml` and adapt to your needs, or leave as is.
-Run [PhpUnit](https://phpunit.de/) like this:
+Either copy `phpunit.xml.dist` to `phpunit.xml` and adapt to your needs, or leave as is. Run [PhpUnit](https://phpunit.de/) test or composer scripts like this:
 
 ```bash
+$ composer test
+# or
 $ vendor/bin/phpunit
 ```
