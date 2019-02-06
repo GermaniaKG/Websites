@@ -2,21 +2,14 @@
 
 <phpunit colors="true"
 		 stopOnFailure="true"
-		 syntaxCheck="true"
 		 bootstrap="tests/bootstrap.php"
 		 beStrictAboutCoversAnnotation="true"
 		 verbose="true">
 
-
 	<testsuites>
-		<testsuite name="default">
+		<testsuite name="Test Suite">
 			<directory>tests/default</directory>
 		</testsuite>
-		<!--
-		<testsuite name="mysql">
-			<directory>tests/mysql</directory>
-		</testsuite>
-		-->
 	</testsuites>
 
 	<filter>
@@ -26,11 +19,11 @@
 	</filter>
 
 	<logging>
-		<log type="coverage-clover" target="build/logs/clover.xml"/>
-		<log type="coverage-html"   target="build/logs/html/"/>
-		<log type="testdox-html"    target="build/logs/testdox.html"/>
+		<log type="coverage-clover" target="var/build/logs/clover.xml"/>
+		<log type="coverage-html"   target="var/build/logs/html/"/>
 		<log type="coverage-text"   target="php://stdout" showUncoveredFiles="true" />
-		<var name="DB_SETUP"  value="sql/install.sql.txt" />
+		<log type="testdox-html"    target="var/build/logs/testdox.html"/>
+		<log type="testdox-text"    target="var/build/logs/testdox.txt"/>
 	</logging>
 
 </phpunit>
