@@ -1,6 +1,6 @@
 # Germania KG · Websites
 
-**This package was destilled from legacy code!**   
+**This package was destilled from legacy code and is deprecated.*   
 You better do not want it to use this in production.
 
 [![Packagist](https://img.shields.io/packagist/v/germania-kg/websites.svg?style=flat)](https://packagist.org/packages/germania-kg/websites)
