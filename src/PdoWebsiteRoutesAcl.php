@@ -32,6 +32,11 @@ class PdoWebsiteRoutesAcl
      */
     public $separator   = ",";
 
+    /**
+     * @var string
+     */
+    public $route_field_name   = "route";
+
 
     /**
      * @param \PDO                 $pdo                 PDO instance
@@ -48,7 +53,7 @@ class PdoWebsiteRoutesAcl
 
         // Read pages and allowed roles
         $sql =  "SELECT
-        Page.route,
+        Page.{$this->route_field_name},
         GROUP_CONCAT(Page_Roles.role_id SEPARATOR '{$this->separator}') AS roles
 
         FROM      {$this->pages_table} Page
