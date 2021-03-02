@@ -5,6 +5,26 @@ use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Psr\Log\LoggerAwareTrait;
 
+/**
+ * Reads an ACL list for route URL paths.
+ *
+ *   Array
+ *   (
+ *       [/] => Array
+ *           (
+ *               [0] => 2
+ *           )
+ *
+ *       [/some/route] => Array
+ *           (
+ *               [0] => 4
+ *               [1] => 5
+ *               [2] => 4
+ *               [3] => 5
+ *           )
+ *   )
+ *
+ */
 class PdoWebsiteRoutesAcl
 {
 
