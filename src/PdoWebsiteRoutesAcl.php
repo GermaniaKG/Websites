@@ -5,6 +5,26 @@ use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Psr\Log\LoggerAwareTrait;
 
+/**
+ * Reads an ACL list for route URL paths.
+ *
+ *   Array
+ *   (
+ *       [/] => Array
+ *           (
+ *               [0] => 2
+ *           )
+ *
+ *       [/some/route] => Array
+ *           (
+ *               [0] => 4
+ *               [1] => 5
+ *               [2] => 4
+ *               [3] => 5
+ *           )
+ *   )
+ *
+ */
 class PdoWebsiteRoutesAcl
 {
 
@@ -32,6 +52,11 @@ class PdoWebsiteRoutesAcl
      */
     public $separator   = ",";
 
+    /**
+     * @var string
+     */
+    public $route_field_name   = "route";
+
 
     /**
      * @param \PDO                 $pdo                 PDO instance
@@ -48,7 +73,7 @@ class PdoWebsiteRoutesAcl
 
         // Read pages and allowed roles
         $sql =  "SELECT
-        Page.route,
+        Page.{$this->route_field_name},
         GROUP_CONCAT(Page_Roles.role_id SEPARATOR '{$this->separator}') AS roles
 
         FROM      {$this->pages_table} Page
