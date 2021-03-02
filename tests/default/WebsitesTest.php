@@ -39,16 +39,16 @@ class WebsitesTest extends TestCase
     public function testIterator(  )
     {
         $sut = new Websites;
-        $this->assertTrue( $sut instanceOf \Traversable );
+        $this->assertInstanceOf( \Traversable::class, $sut );
 
         $iterator = $sut->getIterator();
-        $this->assertTrue( $iterator instanceOf \Traversable );
+        $this->assertInstanceOf( \Traversable::class, $iterator );
     }
 
     public function testCountable(  )
     {
         $sut = new Websites;
-        $this->assertInternalType( "int", count($sut) );
+        $this->assertIsInt(count($sut) );
     }
 
 
