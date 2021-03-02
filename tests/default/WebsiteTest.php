@@ -5,15 +5,17 @@ use Germania\Websites\Website;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Prophecy\Argument;
+use Prophecy\PhpUnit\ProphecyTrait;
 use PHPUnit\Framework\TestCase;
 
 class WebsiteTest extends TestCase
 {
+    use ProphecyTrait;
 
     public $logger;
 
 
-    public function setUp()
+    public function setUp() : void
     {
         parent::setUp();
         $this->logger = new NullLogger;
@@ -33,8 +35,8 @@ class WebsiteTest extends TestCase
         $this->assertEquals( "foo", $sut->setTemplate("foo")->getTemplate() );
         $this->assertEquals( "foo", $sut->setDomId("foo")->getDomId() );
 
-        $this->assertInternalType("array", $sut->getJavascripts());
-        $this->assertInternalType("array", $sut->getStylesheets());
+        $this->assertIsArray($sut->getJavascripts());
+        $this->assertIsArray($sut->getStylesheets());
 
         $this->assertEquals( array("foo"), $sut->setJavascripts(array("foo"))->getJavascripts() );
         $this->assertEquals( array("foo"), $sut->setStylesheets(array("foo"))->getStylesheets() );
